@@ -1,0 +1,39 @@
+#!coding:utf-8
+import requests
+import pymysql.cursors
+from bs4 import BeautifulSoup
+
+
+
+def get_conn(key,value):
+    # 打开数据库连接
+    db = pymysql.connect("ip", "username", "passward", "table")
+    # # 使用 cursor() 方法创建一个游标对象 cursor
+    cursor = db.cursor()
+    sql = "INSERT INTO   hh  (keya ,valuea) values ('"+str(key).strip().replace("'","")+"','"+str(value)+"');" ;
+    cursor.execute(sql)
+    db.commit()
+    cursor.close()
+    db.close();
+
+
+
+
+if __name__ == '__main__':
+
+    for i in range(0,3835):
+        url = r'http://k68363.cn/hui3huang/mb5/k1uyhp2cw.php?ms=0&h='+str(i)+'';
+        head = {
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1'
+        }
+
+        session = requests.session()
+        requ = session.get(url,  headers=head)
+        soup = BeautifulSoup(requ.content, 'lxml') # r.content就是响应内容，转换为lxml的bs对象[/color]
+        imgs = soup.find_all(name='source', attrs={})  # 查找所有的img标签，并获取标签属性值（为列表类型）
+        title = soup.find_all(name='h1', attrs={})
+
+        s = imgs[0].get("src");
+        print(title[0].text)
+        print(s)
+        get_conn(title[0].text,s)
