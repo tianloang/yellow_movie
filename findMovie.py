@@ -1,22 +1,7 @@
 #!coding:utf-8
+import sys
 import requests
-import pymysql.cursors
 from bs4 import BeautifulSoup
-
-
-
-def get_conn(key,value):
-    # 打开数据库连接
-    db = pymysql.connect("ip", "username", "passward", "table")
-    # # 使用 cursor() 方法创建一个游标对象 cursor
-    cursor = db.cursor()
-    sql = "INSERT INTO   hh  (keya ,valuea) values ('"+str(key).strip().replace("'","")+"','"+str(value)+"');" ;
-    cursor.execute(sql)
-    db.commit()
-    cursor.close()
-    db.close();
-
-
 
 
 if __name__ == '__main__':
@@ -34,6 +19,10 @@ if __name__ == '__main__':
         title = soup.find_all(name='h1', attrs={})
 
         s = imgs[0].get("src");
-        print(title[0].text)
-        print(s)
-        get_conn(title[0].text,s)
+        # print(title[0].text)
+        # print(s)
+        sys.stdout = open('src.txt', mode='a', encoding='utf-8')
+        print(title[0].text + ''+s)
+        sys.stdout.close();
+
+
