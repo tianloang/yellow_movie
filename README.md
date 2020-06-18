@@ -1,13 +1,16 @@
 # yellow_movie
 
-如果你想知道这代码最深处的奥秘，那么请 编辑 html 文件  
+如果你想知道这代码最深处的奥秘，那么请 按照以下步骤来  
 
+1.安装python 3.7以上版本
 
- 
- 
- 
- 
- 将获取到的src 放入 source 标签就好 
+2.pip install sys  requests  BeautifulSoup  这3个包需要引入
+
+3.运行     python findMovie.py 文件
+
+4.会在同文件夹下生成src.text 文件  
+
+5.将 src 放入 source 里，用手机打开这个文件，就有意想不到的事情
  
  
  我是雷锋
