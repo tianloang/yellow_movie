@@ -4,9 +4,9 @@
 
 1.安装python 3.7以上版本
 
-2.pip install sys  requests  BeautifulSoup  这3个包需要引入
+2.这2个包需要引入 requests  BeautifulSoup   不会自行百度
 
-3.运行     python findMovie.py 文件
+3.cmd 运行     python findMovie.py 文件
 
 4.会在同文件夹下生成src.text 文件  
 
