@@ -8,7 +8,7 @@
 
 3.cmd 运行     python findMovie.py 文件
 
-4.会在同文件夹下生成src.text 文件  
+4.会在同文件夹下生成src.txt 文件  
 
 5.将 链接 放入 source 标签  src 里，用手机打开这个文件，就有意想不到的事情
  
